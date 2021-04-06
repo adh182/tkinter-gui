@@ -42,8 +42,6 @@ class Window(Frame):
 		menu.add_cascade(label='Edit', menu=edit)
 		menu.add_cascade(label='Help', menu=helps)
 
-
-
 	def upper_part(self):
 		'''Upper part of the window'''
 
