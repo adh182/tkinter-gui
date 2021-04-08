@@ -12,6 +12,8 @@ class Window(Frame):
 		self.init_window()
 		
 	def init_window(self):
+		'''Initialize windows'''
+
 		self.master.title('Login System')
 		self.fontstyle = Font(family='Times New Roman', size=12)
 		self.login_icon()
@@ -20,6 +22,8 @@ class Window(Frame):
 		self.menus()
 
 	def login_icon(self):
+		'''Load login icon'''
+
 		load = Image.open('icon_login3.png')
 		render = ImageTk.PhotoImage(load)
 
@@ -28,6 +32,8 @@ class Window(Frame):
 		img.place(x=155, y=3)
 
 	def menus(self):
+		'''Add menus'''
+
 		menu = Menu(self.master)
 		self.master.config(menu=menu)
 
@@ -45,13 +51,18 @@ class Window(Frame):
 		menu.add_cascade(label='Help', menu=helps)
 
 	def exit(self):
+		'''Exit command'''
 		exit()
 
 	def show_credit(self):
+		'''Show credit command'''
+
 		self.credit = Label(text='This program created by Adh', font=self.fontstyle, fg='dark grey')
 		self.credit.place(x=10, y=275)
 
 	def hide_credit(self):
+		'''Hide credit command'''
+
 		self.credit.place_forget()
 
 	def username_password(self):
@@ -90,6 +101,8 @@ class Window(Frame):
 		self.btn_login.place(x=230, y=200)
 
 	def register(self):
+		"""Make toplevel window; registration window"""
+
 		global register
 		register = Toplevel()
 		register.title('Register')
@@ -123,6 +136,8 @@ class Window(Frame):
 		btn_close.place(x=250, y=150)
 
 	def register_user(self):
+		"""Handle user's username and password"""
+
 		username_info = username.get()
 		password_info = password.get()
 		list_of_files = os.listdir()
@@ -164,9 +179,12 @@ class Window(Frame):
 		''' 
 
 	def close_register(self):
+		"""Close registration window"""
 		register.destroy()
 
 	def login_user_verify(self):
+		"""Verify user's credentials"""
+
 		username_info = self.ent_username.get()
 		password_info = self.ent_password.get()
 
@@ -188,6 +206,7 @@ class Window(Frame):
 			self.user_not_found()
 
 	def user_not_found(self):
+		"""User not found"""
 	
 		not_found_lbl = Label(text='User not found. Your account not registered',
 						font=('Times New Roman', 10), fg='red')
@@ -195,6 +214,7 @@ class Window(Frame):
 		not_found_lbl.after(1000, lambda: not_found_lbl.place_forget())
 
 	def login_succes(self):
+		"""Login success"""
 		''''to do later : open new windows'''
 		
 		login_succes_lbl = Label(text='Login succes', font=('Times New Roman', 10), fg='green')
@@ -202,11 +222,12 @@ class Window(Frame):
 		login_succes_lbl.after(1000, lambda: exit())
 
 	def wrong_password(self):
+		"""Wrong password"""
+
 		wrong_password_lbl = Label(text='You entered wrong password', font=('Times New Roman', 10),
 							 fg='red')
 		wrong_password_lbl.place(x=130, y=175)
 		wrong_password_lbl.after(1000, lambda: wrong_password_lbl.place_forget())
-
 
 
 root = Tk()
